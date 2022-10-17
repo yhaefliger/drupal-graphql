@@ -46,7 +46,7 @@ class TypePluginManagerAggregator implements \IteratorAggregate {
   /**
    * {@inheritdoc}
    */
-  public function getIterator() {
+  public function getIterator(): \Traversable {
     return new \ArrayIterator($this->pluginManagers);
   }
 }

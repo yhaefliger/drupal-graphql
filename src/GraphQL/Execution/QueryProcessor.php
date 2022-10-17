@@ -8,6 +8,7 @@ use Drupal\Core\Cache\CacheBackendInterface;
 use Drupal\Core\Cache\Context\CacheContextsManager;
 use Drupal\graphql\Plugin\SchemaPluginManager;
 use Drupal\graphql\GraphQL\Cache\CacheableRequestError;
+use GraphQL\Error\DebugFlag;
 use GraphQL\Error\Error;
 use GraphQL\Error\FormattedError;
 use GraphQL\Executor\ExecutionResult;
@@ -27,6 +28,7 @@ use GraphQL\Utils\Utils;
 use GraphQL\Validator\Rules\AbstractValidationRule;
 use GraphQL\Validator\ValidationContext;
 use GraphQL\Validator\Rules\QueryComplexity;
+use Symfony\Component\ErrorHandler\Debug;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 // TODO: Refactor this and clean it up.
@@ -154,8 +156,8 @@ class QueryProcessor {
         $result->setErrorsHandler($config->getErrorsHandler());
       }
 
-      if ($config->getErrorFormatter() || $config->getDebug()) {
-        $result->setErrorFormatter(FormattedError::prepareFormatter($config->getErrorFormatter(), $config->getDebug()));
+      if ($config->getErrorFormatter() || $config->getDebugFlag() > 0) {
+        $result->setErrorFormatter(FormattedError::prepareFormatter($config->getErrorFormatter(), 1));
       }
 
       return $result;
@@ -230,7 +232,7 @@ class QueryProcessor {
    */
   protected function executeCacheableOperation(PromiseAdapter $adapter, ServerConfig $config, OperationParams $params, DocumentNode $document, $validate = TRUE) {
     $contextCacheId = 'ccid:' . $this->cacheIdentifier($params, $document);
-    if (!$config->getDebug() && $contextCache = $this->cacheBackend->get($contextCacheId)) {
+    if (!$config->getDebugFlag() > 0 && $contextCache = $this->cacheBackend->get($contextCacheId)) {
       $contexts = $contextCache->data ?: [];
       $cid = 'cid:' . $this->cacheIdentifier($params, $document, $contexts);
       if ($cache = $this->cacheBackend->get($cid)) {

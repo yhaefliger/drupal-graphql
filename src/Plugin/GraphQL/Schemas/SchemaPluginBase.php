@@ -15,6 +15,7 @@ use Drupal\graphql\Plugin\SubscriptionPluginManager;
 use Drupal\graphql\Plugin\SchemaBuilderInterface;
 use Drupal\graphql\Plugin\SchemaPluginInterface;
 use Drupal\graphql\Plugin\TypePluginManagerAggregator;
+use GraphQL\Error\DebugFlag;
 use GraphQL\Language\AST\DocumentNode;
 use GraphQL\Server\OperationParams;
 use GraphQL\Server\ServerConfig;
@@ -288,7 +289,7 @@ abstract class SchemaPluginBase extends PluginBase implements SchemaPluginInterf
 
     $config->setPersistentQueryLoader([$this->queryProvider, 'getQuery']);
     $config->setQueryBatching(TRUE);
-    $config->setDebug(!!$this->parameters['development']);
+    $config->setDebugFlag($this->parameters['development'] ? DebugFlag::INCLUDE_TRACE : DebugFlag::NONE);
     $config->setSchema($this->getSchema());
 
     // Always log the errors.
