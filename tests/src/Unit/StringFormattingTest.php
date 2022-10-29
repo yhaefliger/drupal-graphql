@@ -4,6 +4,7 @@ namespace Drupal\Tests\graphql\Unit;
 
 use Drupal\graphql\Utility\StringHelper;
 use Drupal\Tests\UnitTestCase;
+use InvalidArgumentException;
 
 /**
  * Tests string helper functions.
@@ -14,9 +15,9 @@ class StringFormattingTest extends UnitTestCase {
 
   /**
    * @expectedException \InvalidArgumentException
-   * @expectedExceptionMessageRegExp /Failed to create a specification compliant string representation for '.+'\./
    */
   public function testFailureOnInvalidInput() {
+    $this->expectException(InvalidArgumentException::class);
     StringHelper::camelCase('^%!@#&');
   }
 

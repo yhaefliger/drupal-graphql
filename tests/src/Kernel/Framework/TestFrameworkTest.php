@@ -8,6 +8,7 @@ use Drupal\graphql\GraphQL\Execution\ResolveContext;
 use Drupal\graphql\Plugin\SchemaBuilder;
 use Drupal\Tests\graphql\Kernel\GraphQLTestBase;
 use GraphQL\Type\Definition\ResolveInfo;
+use DMS\PHPUnitExtensions\ArraySubset\ArraySubsetAsserts;
 
 /**
  * Test the test framework.
@@ -15,6 +16,8 @@ use GraphQL\Type\Definition\ResolveInfo;
  * @group graphql
  */
 class TestFrameworkTest extends GraphQLTestBase {
+
+  use ArraySubsetAsserts;
 
   /**
    * Test mocked fields.
