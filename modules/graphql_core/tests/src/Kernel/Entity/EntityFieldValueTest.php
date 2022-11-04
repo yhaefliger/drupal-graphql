@@ -232,10 +232,10 @@ GQL;
     $node = $this->createNode($values + $actualFieldValues);
 
     // Workaround for public file urls.
-    $expectedFieldValues['fieldFile'][0]['entity']['url'] = file_create_url($this->testFile->getFileUri());
-    $expectedFieldValues['fieldFile'][1]['entity']['url'] = file_create_url($this->testImage->getFileUri());
-    $expectedFieldValues['fieldImage'][0]['entity']['url'] = file_create_url($this->testFile->getFileUri());
-    $expectedFieldValues['fieldImage'][1]['entity']['url'] = file_create_url($this->testImage->getFileUri());
+    $expectedFieldValues['fieldFile'][0]['entity']['url'] = \Drupal::service('file_url_generator')->generateAbsoluteString($this->testFile->getFileUri());
+    $expectedFieldValues['fieldFile'][1]['entity']['url'] = \Drupal::service('file_url_generator')->generateAbsoluteString($this->testImage->getFileUri());
+    $expectedFieldValues['fieldImage'][0]['entity']['url'] = \Drupal::service('file_url_generator')->generateAbsoluteString($this->testFile->getFileUri());
+    $expectedFieldValues['fieldImage'][1]['entity']['url'] = \Drupal::service('file_url_generator')->generateAbsoluteString($this->testImage->getFileUri());
 
     $metadata = $this->defaultCacheMetaData();
     $metadata->addCacheTags([
