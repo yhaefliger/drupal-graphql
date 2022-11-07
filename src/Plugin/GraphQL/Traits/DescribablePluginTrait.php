@@ -7,14 +7,18 @@ trait DescribablePluginTrait {
   /**
    * @param $definition
    *
-   * @return null|string
+   * @return string
    */
   protected function buildDescription($definition) {
-    if (!empty($definition['description'])) {
-      return (string) $definition['description'];
+    if (isset($definition['description']) &&  !empty($definition['description'])) {
+      //dsm($definition['description']);
+      if (is_callable([$definition['description'], 'render'])){
+        return $definition['description']->getUntranslatedString();
+        //return $definition['description']->render();
+      }
     }
 
-    return NULL;
+    return '';
   }
 
 }

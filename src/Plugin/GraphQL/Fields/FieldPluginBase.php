@@ -55,7 +55,7 @@ abstract class FieldPluginBase extends PluginBase implements FieldPluginInterfac
    */
   public static function createInstance(SchemaBuilderInterface $builder, FieldPluginManager $manager, $definition, $id) {
     return [
-      'description' => $definition['description'],
+      'description' => $definition['description'] ?? '',
       'contexts' => $definition['contexts'],
       'deprecationReason' => $definition['deprecationReason'],
       'type' => $builder->processType($definition['type']),
