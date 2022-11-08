@@ -14,7 +14,7 @@ class EntityPropertyConflict extends GraphQLContentTestBase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = [
+  protected static $modules = [
     'comment',
   ];
 

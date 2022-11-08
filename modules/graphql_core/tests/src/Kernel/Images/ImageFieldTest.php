@@ -15,7 +15,7 @@ class ImageFieldTest extends GraphQLContentTestBase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = [
+  protected static $modules = [
     'file',
     'image',
   ];
@@ -23,7 +23,7 @@ class ImageFieldTest extends GraphQLContentTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
     $this->installConfig('image');
     $this->installSchema('file', 'file_usage');

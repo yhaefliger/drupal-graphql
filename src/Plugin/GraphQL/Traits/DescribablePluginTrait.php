@@ -11,7 +11,6 @@ trait DescribablePluginTrait {
    */
   protected function buildDescription($definition) {
     if (isset($definition['description']) &&  !empty($definition['description'])) {
-      //dsm($definition['description']);
       if (is_callable([$definition['description'], 'render'])){
         return $definition['description']->getUntranslatedString();
         //return $definition['description']->render();

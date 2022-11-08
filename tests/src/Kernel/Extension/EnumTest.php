@@ -11,7 +11,7 @@ use Drupal\Tests\graphql\Kernel\GraphQLTestBase;
  */
 class EnumTest extends GraphQLTestBase {
 
-  public static $modules = [
+  protected static $modules = [
     'graphql_enum_test',
   ];
 

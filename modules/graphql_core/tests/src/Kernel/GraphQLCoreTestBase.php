@@ -12,7 +12,7 @@ class GraphQLCoreTestBase extends GraphQLTestBase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = [
+  protected static $modules = [
     'graphql_core',
     'path_alias',
     'user',
@@ -21,11 +21,11 @@ class GraphQLCoreTestBase extends GraphQLTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
     // User entity schema is required for the currentUserContext field.
     $this->installEntitySchema('user');
-    module_load_include('install', 'user', 'user');
+    \Drupal::moduleHandler()->loadInclude('user', 'install', 'user');
     user_install();
   }
 

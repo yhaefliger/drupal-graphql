@@ -28,7 +28,7 @@ class EntityFieldValueTest extends GraphQLContentTestBase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = [
+  protected static $modules = [
     'link',
     'datetime',
     'image',
@@ -38,7 +38,7 @@ class EntityFieldValueTest extends GraphQLContentTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
   }
 

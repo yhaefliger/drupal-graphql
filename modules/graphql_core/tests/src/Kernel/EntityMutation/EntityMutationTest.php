@@ -30,7 +30,7 @@ class EntityMutationTest extends GraphQLContentTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
     $this->mockInputType('node_input', [
       'name' => 'NodeInput',

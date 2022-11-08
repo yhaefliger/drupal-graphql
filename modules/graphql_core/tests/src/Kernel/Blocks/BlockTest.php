@@ -18,7 +18,7 @@ class BlockTest extends GraphQLCoreTestBase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = [
+  protected static $modules = [
     'block',
     'block_content',
     'text',
@@ -33,7 +33,7 @@ class BlockTest extends GraphQLCoreTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
 
     /** @var \Drupal\Core\Extension\ThemeInstallerInterface $themeInstaller */

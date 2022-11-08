@@ -15,14 +15,14 @@ use Prophecy\Argument;
  */
 class RouteTest extends GraphQLCoreTestBase {
 
-  public static $modules = [
+  protected static $modules = [
     'graphql_context_test',
   ];
 
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
 
     $aliasManager = $this->prophesize(AliasManagerInterface::class);

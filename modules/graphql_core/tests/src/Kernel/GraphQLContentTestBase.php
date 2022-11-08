@@ -22,7 +22,7 @@ class GraphQLContentTestBase extends GraphQLCoreTestBase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = [
+  protected static $modules = [
     'content_translation',
     'node',
     'field',
@@ -45,7 +45,7 @@ class GraphQLContentTestBase extends GraphQLCoreTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
 
     $this->installConfig(['node', 'filter', 'text']);

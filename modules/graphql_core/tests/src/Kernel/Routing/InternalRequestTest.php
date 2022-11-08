@@ -14,12 +14,12 @@ class InternalRequestTest extends GraphQLCoreTestBase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = ['graphql_core', 'graphql_requests_test'];
+  protected static $modules = ['graphql_core', 'graphql_requests_test'];
 
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
     $this->installEntitySchema('user');
   }

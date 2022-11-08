@@ -18,12 +18,12 @@ class LanguageContextTest extends GraphQLTestBase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = ['language'];
+  protected static $modules = ['language'];
 
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
 
     $this->mockType('node', ['name' => 'Node']);

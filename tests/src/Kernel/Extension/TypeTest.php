@@ -11,7 +11,7 @@ use Drupal\Tests\graphql\Kernel\GraphQLTestBase;
  * @group graphql
  */
 class TypeTest extends GraphQLTestBase {
-  public static $modules = [
+  protected static $modules = [
     'graphql_plugin_test',
   ];
 

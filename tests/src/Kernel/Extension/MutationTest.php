@@ -11,7 +11,7 @@ use Drupal\Tests\graphql\Kernel\GraphQLTestBase;
  * @group graphql
  */
 class MutationTest extends GraphQLTestBase {
-  public static $modules = [
+  protected static $modules = [
     'graphql_plugin_test',
   ];
 

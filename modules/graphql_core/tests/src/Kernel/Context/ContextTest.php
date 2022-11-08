@@ -11,7 +11,7 @@ use Drupal\Tests\graphql_core\Kernel\GraphQLCoreTestBase;
  */
 class ContextTest extends GraphQLCoreTestBase {
 
-  public static $modules = [
+  protected static $modules = [
     'graphql_context_test',
   ];
 

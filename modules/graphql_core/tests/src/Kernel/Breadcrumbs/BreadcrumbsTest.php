@@ -18,14 +18,14 @@ class BreadcrumbsTest extends GraphQLCoreTestBase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = [
+  protected static $modules = [
     'graphql_breadcrumbs_test',
   ];
 
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
 
     $breadcrumbManager = $this->prophesize('Drupal\Core\Breadcrumb\BreadcrumbManager');

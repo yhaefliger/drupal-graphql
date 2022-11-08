@@ -30,7 +30,7 @@ abstract class GraphQLTestBase extends KernelTestBase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = [
+  protected static $modules = [
     'system',
     'user',
     'language',
@@ -96,7 +96,7 @@ abstract class GraphQLTestBase extends KernelTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
     $this->injectTypeSystemPluginManagers($this->container);
 

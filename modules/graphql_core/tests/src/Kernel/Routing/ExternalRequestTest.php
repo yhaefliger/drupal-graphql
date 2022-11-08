@@ -16,12 +16,12 @@ class ExternalRequestTest extends GraphQLCoreTestBase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = ['graphql_core'];
+  protected static $modules = ['graphql_core'];
 
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
     $this->installEntitySchema('user');
   }

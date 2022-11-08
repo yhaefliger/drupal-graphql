@@ -17,7 +17,7 @@ abstract class GraphQLFileTestBase extends KernelTestBase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = [
+  protected static $modules = [
     'system',
     'path',
     'user',
@@ -28,7 +28,7 @@ abstract class GraphQLFileTestBase extends KernelTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
     $this->installConfig('system');
     $this->installConfig('graphql');
