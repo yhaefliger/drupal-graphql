@@ -196,7 +196,7 @@ class QueryProcessor {
       // only work through POST requests. One cannot have mutations and queries
       // in the same document, hence this check is sufficient.
       $operation = $params->operation;
-      $type = AST::getOperation($document, $operation);
+      $type = AST::getOperationAST($document, $operation);
       if ($params->isReadOnly() && $type !== 'query') {
         throw new RequestError('GET requests are only supported for query operations.');
       }
